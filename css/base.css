@@ -1,0 +1,423 @@
+:root {
+  /* colors */
+  --h-text: rgba(44, 57, 70, 1);
+  --light-text: lightgrey;
+  --dark-blue: rgb(44, 57, 70);
+  --form-main-text: rgba(44, 57, 70, 0.7);
+  --input-initial: rgba(239, 240, 241, 0.4);
+  --input-darker: #c0c0c0;
+  --checkbox-light: rgba(239, 240, 241, 1);
+  --focus-blue: darkblue;
+  --submit-btn-primary:#000;
+  --submit-btn-danger: #0497e0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-wrapper {
+  background:  url(../cover.png) fixed center; 
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Merriweather', serif;
+  color: #000;
+  font-size: 1em;
+  height: 100%;
+  width: 100%;
+}
+
+.header h1 {
+  color: white;
+}
+
+h1,
+h3 {
+  color: var(--h-text);
+}
+
+h1 {
+  font-size: 1.2rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+.header {
+  text-align: center;
+  padding: 20px 0;
+  background-color: var(--dark-blue);
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+headero
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px;
+  z-index: 10000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 1s;
+}
+
+.wrapper {
+  max-width: 320px;
+  margin: 10px auto 0;
+  padding-bottom: 1em;
+  /*************************************************
+  padding to match the length made by the final p tag 
+  so that the bg image reaches the bottom 
+  of the viewport
+  **************************************************/
+  background: rgba(255, 255, 255, 0.9);
+}
+
+hr#first {
+  border-top: 5px solid;
+  margin-bottom: -6px;
+}
+
+hr#second {
+  border-top: 3px solid;
+}
+
+hr#third,
+hr#fourth {
+  border-top: 3px solid;
+  margin-bottom: 30px;
+}
+
+.intro,
+p:last-child {
+  margin-bottom: 40px;
+  text-align: center;
+  color: var(--light-text);
+}
+
+/************************************
+Form styles
+************************************/
+
+form {
+  margin: 20px 0;
+  color: var(--form-main-text);
+}
+
+fieldset {
+  border: none;
+}
+
+input[type='text'],
+input[type='tel'],
+input[type='email'],
+textarea,
+select {
+  border: 2px solid transparent;
+  margin: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: var(--input-initial);
+  border-radius: 5px;
+
+  -moz-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+input[type='text']:hover,
+input[type='tel']:hover,
+input[type='email']:hover,
+textarea:hover,
+select:hover {
+  background-color: var(--input-darker);
+}
+
+/**************************
+If CSS GRID not supported
+**************************/
+
+.contact-input,
+.about {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.contact-input input,
+.contact-input select,
+.about input {
+  margin: 6px 0 12px;
+}
+
+input[name^='zip'] {
+  display: block;
+}
+
+@supports (display: grid) {
+  .contact-input,
+  .about {
+    display: grid;
+    grid-row-gap: 20px;
+    align-items: center;
+  }
+
+  .contact-input input,
+  .contact-input select,
+  .about input {
+    margin: 0;
+  }
+
+  input[name^='zip'] {
+    display: inline-block;
+  }
+}
+
+.contact-input h3,
+.about h3 {
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+}
+
+/*undo the width for this one element*/
+input[name^='zip'] {
+  justify-self: flex-start;
+  width: auto;
+}
+
+.newsletter textarea {
+  margin-bottom: 30px;
+}
+
+/************************************
+Button and action styles
+************************************/
+
+/**************************
+State Dropdown Styling
+**************************/
+.state-select {
+  position: relative;
+}
+
+.state-select::after {
+  position: absolute;
+  content: '>';
+  font-size: 21px;
+  color: inherit;
+  top: 0;
+  right: 15px;
+  transform: translateY(50%) rotate(90deg);
+  pointer-events: none;
+}
+
+.state-select select {
+  line-height: 1.3;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/************************************
+Newsletter
+  - checkbox design
+************************************/
+
+.newsletter__label {
+  position: relative;
+  display: block;
+  margin-bottom: 10px;
+  padding-left: 25px;
+  cursor: pointer;
+}
+
+.newsletter__input {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.newsletter__checkmark {
+  box-sizing: border-box;
+  position: absolute;
+  top: 1px;
+  left: 0;
+  border-radius: 5px;
+  height: 17px;
+  width: 17px;
+  border: 2px solid var(--checkbox-light);
+  background-color: var(--checkbox-light);
+  -moz-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.newsletter__label:hover .newsletter__input ~ .newsletter__checkmark {
+  background-color: var(--input-darker);
+  border: 2px solid var(--input-darker);
+}
+
+.newsletter__input:focus ~ .newsletter__checkmark {
+  border-color: darkblue;
+}
+
+.newsletter__label .newsletter__input:checked ~ .newsletter__checkmark::after {
+  display: block;
+}
+
+.newsletter__checkmark::after {
+  box-sizing: border-box;
+  display: none;
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-color: transparent;
+  border: 2px solid transparent;
+  content: '\2713';
+  font-size: 11px;
+  text-align: center;
+  color: var(--focus-blue);
+  border-radius: 5px;
+  width: 17px;
+  height: 17px;
+}
+
+/************************************
+Newsletter Format
+  - radio button design
+************************************/
+
+.format {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  padding-left: 25px;
+  margin-bottom: 10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: none;
+}
+
+.format input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.format__checkmark {
+  position: absolute;
+  top: 1px;
+  left: 0;
+  height: 17px;
+  width: 17px;
+  background-color: var(--checkbox-light);
+  border: 1px solid var(--checkbox-light);
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
+.format__checkmark::after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.format input:checked ~ .format__checkmark::after {
+  display: block;
+  top: 4px;
+  left: 4px;
+  height: 7px;
+  width: 7px;
+  background-color: var(--focus-blue);
+  border-radius: 50%;
+}
+
+.format:hover .format__checkmark {
+  border: 1px solid var(--input-darker);
+  background-color: var(--input-darker);
+}
+
+.format input:focus ~ .format__checkmark {
+  border: 1px solid var(--focus-blue);
+}
+
+/************************************
+Inputs
+************************************/
+
+input:placeholder-shown {
+  text-align: right;
+}
+
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='tel']:focus,
+select:focus,
+textarea:focus {
+  border: 2px solid var(--focus-blue);
+  background-color: var(--input-darker);
+}
+
+/************************************
+Submit button transitions
+************************************/
+
+input[type='submit'] {
+  width: 100%;
+  padding: 20px 0;
+  background-color: var(--submit-btn-primary);
+  color: white;
+  border-radius: 5px;
+  font-size: 1.3em;
+  border: none;
+  -moz-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+input[type='submit']:hover {
+  background-color: var(--submit-btn-danger);
+}
+
+input[type='submit']:active {
+  background-color: var(--submit-btn-danger);
+  box-shadow: inset 0 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+/***************************************
+MEDIA QUERIES
+****************************************/
+
+/*tablet screens*/
+
+@media screen and (min-width: 480px) {
+  .wrapper {
+    max-width: 480px;
+  }
+}
+
+/*desktop screens*/
+
+@media screen and (min-width: 760px) {
+  .wrapper {
+    max-width: 760px;
+  }
+
+  .contact-input,
+  .about {
+    grid-template-columns: 1fr 3fr;
+  }
+}

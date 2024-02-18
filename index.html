@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>
+      Formulaire d'inscription | Sign up to get updates on how your code is
+      doing
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Merriweather"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/base.css" />
+  </head>
+  <body>
+    <div class="bg-wrapper">
+      <div class="header">
+        <a href="https://smawotech.github.io/swt/" class="header"><img src="img/lg.png"></a><h1>Formulaire d'inscription</h1> 
+      </div>
+
+      <div class="wrapper">
+        <div class="intro">
+          <a href=""class="intro"><img src="img/cv.png"></a>
+          <h1>Inscrivez-vous à l'atélier de Formation</h1>
+          <p>
+            Smart World Technology organise un atélier de formation pour le partage des connaissances pratiques et professionnelles à la jeunesse de Kalemie passionnée de la Technologie 
+          </p>
+        </div>
+        <hr id="first" />
+        <hr id="second" />
+        <form action="https://formspree.io/f/mdoqgyka" method="post">
+          <fieldset class="contact-input">
+            <h3>Remplissez votre formulaire</h3>
+
+            <label for="Noms">Nom complet</label>
+            <input
+              type="text"
+              id="name"
+              name="Noms"
+              placeholder="Saisissez votre nom, post-nom et prenom"
+              required
+            />
+          </fieldset>
+          <fieldset label for="Noms">sexe</label>
+            <label class="format" for="format-html">
+              <input
+                type="radio"
+                name="Sexe"
+                value="M"
+                id="format-html"
+              />
+              <span class="format__checkmark"></span>
+              M
+            </label>
+            <label class="format" for="format-plain">
+              <input
+                type="radio"
+                name="Sexe"
+                value="F"
+                id="format-plain"
+              />
+              <span class="format__checkmark"></span>
+              F
+            </label>
+          </fieldset>
+          <fieldset class="contact-input">
+            <label for="email">Adresse Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Entrer votre email"
+              required
+            />
+
+            <label for="phone">Numero de téléphone</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="+243 900 000 000" 
+            />
+            <!-- documentation says that type telephone isn't really supported yet -->
+            <label for="street">Adresse Physique</label>
+            <input type="text" id="Adresse Physique" name="Adresse Physique" />
+
+            <label for="Université">Université</label>
+            <input type="text" id="Université" name="Université" />
+
+            <label for="Faculté">Faculté</label>
+            <div class="state-select">
+              <select id="state" name="Faculté">
+                <option value="" disabled selected hidden>Choisissez votre sujet</option>
+                <option value="Autres">Autres</option>
+                <option value="Info Réseaux">Informatique des réseaux</option>
+                <option value="Info de Gestion">Informatique de Gestion</option>
+                <option value="Info systèmes">Informatique des systèmes</option>
+                <option value="Télécom">Télécommunication</option>
+                
+              </select>
+            </div>
+
+            <label for="Département">Département</label>
+            <input type="text" id="zip" name="Département" />
+          </fieldset>
+          <hr id="third" />
+          <fieldset class="about">
+            <h3>Formation</h3>
+
+            <label for="codeLanguage">Module</label>
+            <div class="state-select">
+              <select id="state" name="Module">
+                <option value="Choose">Choisissez le module qui vous convient</option>
+                <option value="Réseaux informatique">Réseaux informatiques</option>
+                <option value="Systèmes cctv">Systèmes des vidéosurveillances</option>
+                <option value="Les deux">Les deux</option>
+              </select>
+            </div>
+
+            <label for="ide">Langue d'apprentissage</label>
+            <div class="state-select">
+              <select id="state" name="langue">
+                <option value="Choose">Choisissez votre langue</option>
+                <option value="Français">Français</option>
+                <option value="Anglais">Anglais</option>
+              </select>
+            </div>
+
+          </fieldset>
+          <hr id="fourth" />
+          <fieldset class="newsletter">
+            <h3>Préférences</h3>
+
+            <p>Cochez le moyen par lequel nous pouvons vous contactez</p>
+            <label class="newsletter__label" for="html"
+              >Email
+              <input
+                class="newsletter__input"
+                type="checkbox"
+                id="html"
+                name="Moyen de contact"
+                value="Email"
+              />
+              <span class="newsletter__checkmark"></span>
+            </label>
+
+            <label class="newsletter__label" for="css"
+              >Appel local
+              <input
+                class="newsletter__input"
+                type="checkbox"
+                id="css"
+                name="Moyen de contact"
+                value="Appel local"
+              />
+              <span class="newsletter__checkmark"></span>
+            </label>
+
+            <label class="newsletter__label" for="javascript"
+              >Whatsapp
+              <input
+                class="newsletter__input"
+                type="checkbox"
+                id="javascript"
+                name="Moyen de contact"
+                value="Whatsapp"
+              />
+              <span class="newsletter__checkmark"></span>
+            </label>
+
+
+            <p>Autres suggestions </p>
+
+            <textarea rows="5" name="Message"></textarea><br />
+
+            <input type="submit" value="Envoyez" />
+          </fieldset>
+        </form>
+        <a href="https://smawotech.github.io/swt/" class="intro">Smart World Technology </a>
+      </div>
+    </div>
+  </body>
+</html>
